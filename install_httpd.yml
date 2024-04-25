@@ -6,11 +6,8 @@
 
   - name: Install httpd package
     dnf:
-      name: httpd
-    when: ansible_distribution == "Rocky"
-  
-  - name: Add support for php
-    dnf:
-      name: php
+      name: 
+        - httpd
+        - php
       state: latest
     when: ansible_distribution in ["Rocky", "CentOS"]
