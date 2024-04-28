@@ -1,0 +1,29 @@
+---
+
+- hosts: app_servers
+  become: true
+  tasks:
+
+  - name: Install apache and php packages
+    tags: always, apps
+    package:
+      name: 
+        - "{{ php_package }}"
+        - "{{ apache_package }}"
+      state: latest
+      update_cache: yes
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: Install apache and php packages
+    tags: always, dbs
+    package:
+      name:
+        - "{{ mysql_package }}"
+        - "{{ mysql_server_package }}"
+        - "{{ php_package }}"
+        - "{{ apache_package }}"
+      state: latest
+      update_cache: yes
