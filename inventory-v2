@@ -3,4 +3,4 @@
 192.168.56.5 apache_package=httpd php_package=php
 
 [db_servers]
-192.168.56.6 apache_package=httpd php_package=php
+192.168.56.6 apache_package=httpd php_package=php mysql_package=mysql mysql_server_package=mysql-server
