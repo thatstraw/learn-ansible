@@ -13,6 +13,16 @@
       state: latest
       update_cache: yes
 
+  - name: Copy files to app servers
+    tags: always, apps, file-copy
+    copy:
+      src: default_index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+
 - hosts: db_servers
   become: true
   tasks:
@@ -27,3 +37,6 @@
         - "{{ apache_package }}"
       state: latest
       update_cache: yes
+ 
+ 
+
