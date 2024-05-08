@@ -39,3 +39,26 @@
         global: yes
         state: present
 
+    - name: Ensure teh node.js app directory exists
+      file:
+        path: "{{ node_apps_location }}"
+        state: directory
+    
+    - name: Copy copy node.js app to the server
+      copy:
+        src: app
+        dest: "{{ node_apps_location }}"
+    
+    - name: Install app dependences defined in pacakge.json file
+      npm:
+        path: {{ node_apps_location }}/app
+    
+
+    - name: Check list of running node.js apps
+      command: /usr/local/bin/forever list
+      register: forever_list
+      changed_when: false
+
+    - name: Start our nodejs app
+      command: "/usr/local/bin/foreverstart{{node_apps_location}}/app/app.js"
+      when: "forever_list.stdout.find(node_apps_location + '/app/app.js')==-1"
