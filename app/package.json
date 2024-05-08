@@ -1,0 +1,9 @@
+{
+    "name":"examplenodeapp",
+    "description":"ExampleExpressNode.jsapp.",
+    "author":"Traw<nachivalentine@gmail.com>",
+    "dependencies":{
+    "express":"4.x"
+    },
+    "engine":"node>=10.0.2"
+}
