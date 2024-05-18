@@ -1,0 +1,1 @@
+{"dependencies":[["concurrent-ruby",["~> 1.0"]],["i18n",[">= 0"]],["vagrant-list",["= 0.0.6"]]],"checksum":"2c25086c52c8cd56c18dec363953b221df7ed91bd7938e5f05b1002136f61399","vagrant_version":"2.4.1"}
